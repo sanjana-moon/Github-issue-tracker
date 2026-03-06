@@ -15,10 +15,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1 class="text-3xl text-amber-950">Hello World!</h1>
+    <section class="bg-base-200 py-16">
+        <div class="w-4/12 h-full mx-auto">
+            <fieldset class="fieldset bg-white rounded-box p-4">
+                <img class="mx-auto" src="./assets/github-logo.png" alt="">
+                <h2 class="text-2xl font-bold mx-auto">GitHub Issues Tracker</h2>
+
+                <label class="label mx-auto mb-6">Sign in to manage your issues</label>
+                <h4 class="font-medium">Username</h4>
+                <input type="text" class="input w-full " placeholder="Enter Username" />
+                <p class="text-violet-600 mb-4">Default: admin</p>
+
+                <h4 class="font-medium">Password</h4>
+                <input type="text" class="input w-full" placeholder="Enter Password" />
+                <p class="text-violet-600 mb-6">Default: admin123</p>
+                <button class="btn btn-primary">Sign In</button>
+
+                <p class="text-center">OR</p>
+                <p class="text-xs text-gray-500 text-center">Demo Credentials:</p>
+                <div class="bg-base-200 text-center py-6 mx-6">
+                    <p>
+                        <span class="font-medium">Username:</span> admin
+                    </p>
+                    <p>
+                        <span class="font-medium">Password:</span> admin123
+                    </p>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+
+    
+
 </body>
 
 </html>
