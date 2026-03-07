@@ -43,34 +43,38 @@
     </nav>
 
     <section class="pt-16">
-        <div class="w-9/12 bg-white mx-auto">
-            <div class="btn-container flex gap-3 p-6 rounded">
-                <button class="btn btn-outline btn-primary py-3 px-14">All</button>
-                <button class="btn btn-outline btn-primary py-3 px-14">Open</button>
-                <button class="btn btn-outline btn-primary py-3 px-14">Closed</button>
-            </div>
-
-            <div class="flex justify-between items-center p-6 rounded">
-                <div class="flex justify-between items-center gap-4">
-                    <div>
-                        <img src="./assets/Aperture.png" alt="">
-                    </div>
-                    <div>
-                        <h2 class="font-semibold text-[20px]">50 Issues</h2>
-                        <p class="text-[#64748B]">Track and manage your project issues</p>
-                    </div>
+        <div id="" class="w-9/12 bg-white mx-auto flex gap-3 p-6 rounded mb-4">
+            <button id="all-btn" class="btn btn-container btn-primary btn-outline py-3 px-14">All</button>
+            <button class="btn btn-container btn-primary btn-outline py-3 px-14">Open</button>
+            <button class="btn btn-container btn-primary btn-outline py-3 px-14">Closed</button>
+        </div>
+        <div class="w-9/12 bg-white mx-auto flex justify-between items-center p-6 rounded">
+            <div class="flex justify-between items-center gap-4">
+                <div>
+                    <img src="./assets/Aperture.png" alt="">
                 </div>
-                <div class="flex justify-between items-center gap-4">
-                    <div>
-                        <i class="fa-solid fa-circle text-green-500"></i> Open
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-circle text-purple-600"></i> Closed
-                    </div>
+                <div>
+                    <h2 class="font-semibold text-[20px]">50 Issues</h2>
+                    <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
-            <hr class="text-gray-300">
-            <div id="card-container" class="p-6 grid  gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div class="flex justify-between items-center gap-4">
+                <div>
+                    <i class="fa-solid fa-circle text-green-500"></i> Open
+                </div>
+                <div>
+                    <i class="fa-solid fa-circle text-purple-600"></i> Closed
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="text-gray-300 w-9/12 mx-auto ">
+    <section>
+        <div class="w-9/12 bg-white mx-auto rounded">
+            <div id="card-container" class="p-6 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            </div>
+            <div id="load-spinner" class="hidden flex h-screen justify-center items-center">
+                <span class="loading loading-dots loading-lg"></span>
             </div>
         </div>
     </section>
