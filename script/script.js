@@ -156,6 +156,10 @@ btnSearch.addEventListener("click", () => {
         .then((data) => {
             const allIssues = data.data;
             displayAllIssues(allIssues)
+            buttons.forEach(btn => {
+                btn.classList.remove("btn-primary")
+                btn.classList.add("btn-outline")
+            });
             hideSpinner()
         });
 })
