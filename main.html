@@ -42,6 +42,18 @@
         </div>
     </nav>
 
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="issue_details_modal" class="modal">
+        <div id="modal-container" class="modal-box">
+
+           
+        </div>
+
+        </div>
+    </dialog>
+
+
+
     <section class="pt-16">
         <div id="" class="w-9/12 bg-white mx-auto flex gap-3 p-6 rounded mb-4">
             <button id="all-btn" class="btn btn-container btn-primary btn-outline py-3 px-14">All</button>
@@ -54,7 +66,7 @@
                     <img src="./assets/Aperture.png" alt="">
                 </div>
                 <div>
-                    <h2 class="font-semibold text-[20px]">50 Issues</h2>
+                    <h2 class="font-semibold text-[20px]"><span id="cards-count">50</span> Issues</h2>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
@@ -78,6 +90,7 @@
             </div>
         </div>
     </section>
+
 
 
     <script src="./script/script.js"></script>

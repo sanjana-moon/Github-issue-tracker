@@ -2,6 +2,9 @@ let allIssuesCard = [];
 const cardContainer = document.getElementById('card-container')
 const loadSpinner = document.getElementById("load-spinner")
 const buttons = document.querySelectorAll('.btn-container')
+const cardsCount = document.getElementById('cards-count')
+const issueDetailsModal = document.getElementById('issue_details_modal')
+const modalContainer = document.getElementById('modal-container')
 
 async function loadAllIssues() {
     showSpinner()
@@ -42,7 +45,7 @@ const displayAllIssues = (allIssues) => {
                 issue.priority === "medium" ? "badge-warning" : "badge-primary"}">${issue.priority}</div>
             </div>
             <div class="card-body p-0">
-                <h2 class="card-title">${issue.title}</h2>
+                <h2 class="card-title" onclick="openIssueModal(${issue.id})">${issue.title}</h2>
                 <p class=" text-justify">${issue.description.length > 70 ? issue.description.substring(0, 70) + "..." :
                 issue.description}</p>
                 <div class="flex justify-between">
@@ -64,7 +67,7 @@ const displayAllIssues = (allIssues) => {
         `
         cardContainer.appendChild(card)
     });
-
+    cardsCount.innerText = allIssues.length
 }
 
 async function selectCategory(buttons) {
@@ -88,13 +91,60 @@ async function selectCategory(buttons) {
                 const filteredCard = allIssuesCard.filter(issue => issue.status === filteredValue)
                 displayAllIssues(filteredCard)
             }
-                hideSpinner()
+            hideSpinner()
         }
     });
-
 }
+
+async function openIssueModal(issueId) {
+
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${issueId}`)
+    const data = await res.json()
+    const issueDetails = data.data
+    console.log(issueDetails, "data")
+
+    modalContainer.innerHTML=
+    `
+     <div class="card p-4 shadow-lg/20 space-y-4 h-[350px] pt-8
+            ${issueDetails.status === " open" ? "border-t-4 border-t-green-500" : "border-t-4 border-t-violet-600" }">
+                <div class="card-body p-0">
+                    <h2 class="card-title mb-3">${issueDetails.title}</h2>
+                    <div class="flex">
+                        <div class="badge badge-soft mb-4 ${issueDetails.status === " open" ? "badge-success"
+                            : "badge-primary" }">
+                            ${issueDetails.priority}</div>
+                        <p class="text-gray-500">Opened by: ${issueDetails.author}</p>
+                        <p class="text-gray-500">created at: ${new Date(issueDetails.createdAt).toLocaleDateString()}
+                        </p>
+                    </div>
+                    <div class="flex justify-between mb-3">
+                        ${createElements(issueDetails.labels)}
+                    </div>
+                    <p class=" text-justify">${issueDetails.description}</p>
+                    <div class="flex justify-between items-center text-xs">
+                        <div class="flex justify-between items-center bg-gray-100 w-full py-4 px-6">
+                            <div class ="space-y-2">
+                                <p class="text-gray-500">Assignee: </p>
+                                <h2 class="font-semibold">${issueDetails.assignee}</h2>
+                            </div>
+                            <div class ="space-y-2">
+                                <p class="text-gray-500">Priority:</p>
+                                <div class="badge badge-soft ${issueDetails.priority === " high" ? "badge-secondary" :
+                                    issueDetails.priority==="medium" ? "badge-warning" : "badge-primary" }">
+                                    ${issueDetails.priority}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form method="dialog" class="mt-3 text-right">
+                <button class="btn btn-primary btn-outline">Close</button>
+            </form>
+    `
+    issueDetailsModal.showModal();
+}
+
 selectCategory(buttons)
-
-
 
 loadAllIssues()
