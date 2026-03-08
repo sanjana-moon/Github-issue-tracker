@@ -111,7 +111,7 @@ async function openIssueModal(issueId) {
                 <div class="card-body p-0">
                     <h2 class="card-title mb-3">${issueDetails.title}</h2>
                     <div class="flex justify-start gap-4">
-                        <div class="badge badge-soft mb-4 ${issueDetails.status === " open" ? "badge-success"
+                        <div class="badge badge-soft mb-4 ${issueDetails.status === "open" ? "badge-success"
             : "badge-primary"}">${issueDetails.priority}</div>
                         <p class="text-gray-500">Opened by: ${issueDetails.author}</p>
                         <p class="text-gray-500">created at: ${new Date(issueDetails.createdAt).toLocaleDateString()}
@@ -129,7 +129,7 @@ async function openIssueModal(issueId) {
                             </div>
                             <div class="space-y-2">
                                 <p class="text-gray-500">Priority:</p>
-                                <div class="badge badge-soft ${issueDetails.priority === " high" ? "badge-secondary" :
+                                <div class="badge badge-soft ${issueDetails.priority === "high" ? "badge-secondary" :
             issueDetails.priority === "medium" ? "badge-warning" : "badge-primary"}">
                                     ${issueDetails.priority}
                                 </div>
@@ -155,8 +155,7 @@ btnSearch.addEventListener("click", () => {
         .then(res => res.json())
         .then((data) => {
             const allIssues = data.data;
-            const filterIssues = allIssues.filter(issue => issue.title.toLowerCase().includes(searchValue));
-            displayAllIssues(filterIssues)
+            displayAllIssues(allIssues)
             hideSpinner()
         });
 })
