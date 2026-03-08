@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Issue Tracker</title>
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
+</head>
+
+<body class="bg-gray-100">
+    <nav class="navbar shadow-sm flex gap-5 justify-between items-center bg-white flex-col md:flex-row px-[80px]">
+        <div class="flex gap-3 items-center">
+            <div class="w-10 rounded-full">
+                <img src="./assets/github-logo.png" />
+            </div>
+            <h2 class="font-bold text-lg">GitHub Issues Tracker</h2>
+        </div>
+        <div class="flex gap-4 items-end">
+            <input type="text" id="input-search" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+            <button id="btn-search" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        </div>
+    </nav>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="issue_details_modal" class="modal">
+        <div id="modal-container" class="modal-box">
+
+        </div>
+    </dialog>
+
+    <section class="pt-5 md:pt-16">
+        <div class="w-11/12 bg-white mx-auto flex gap-3 p-6 rounded mb-4 flex-col md:flex-row w-9/12">
+            <button id="all-btn" class="btn btn-container btn-outline py-3 px-14">All</button>
+            <button class="btn btn-container btn-outline py-3 px-14">Open</button>
+            <button class="btn btn-container btn-outline py-3 px-14">Closed</button>
+        </div>
+        <div class="w-11/12 bg-white mx-auto flex gap-6 justify-between items-center p-6 rounded flex-col md:flex-row">
+            <div class="flex justify-between items-start md:items-center gap-4">
+                <div>
+                    <img src="./assets/Aperture.png" alt="">
+                </div>
+                <div>
+                    <h2 class="font-semibold text-[20px]"><span id="cards-count">50</span> Issues</h2>
+                    <p class="text-[#64748B]">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex justify-between gap-20 md:items-center md:gap-4">
+                <div>
+                    <i id="open-dot" class="fa-solid fa-circle text-green-500"></i> Open
+                </div>
+                <div>
+                    <i id="closed-dot" class="fa-solid fa-circle text-purple-600"></i> Closed
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="text-gray-300 w-11/12 mx-auto ">
+    <section>
+        <div class="w-11/12 bg-white mx-auto rounded ">
+            <div id="card-container" class="p-6 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            </div>
+        </div>
+    </section>
+    <div id="load-spinner" class="h-screen flex justify-center items-center hidden bg-white">
+        <span class="loading loading-infinity loading-xl"></span>
+    </div>
+
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
