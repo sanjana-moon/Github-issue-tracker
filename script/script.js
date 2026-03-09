@@ -9,9 +9,11 @@ const btnSearch = document.getElementById('btn-search')
 
 const showSpinner = () => {
     loadSpinner.classList.remove("hidden")
+    document.getElementById("card-section").classList.add("hidden")
 }
 const hideSpinner = () => {
     loadSpinner.classList.add("hidden")
+    document.getElementById("card-section").classList.remove("hidden")
 }
 
 async function loadAllIssues() {
@@ -78,22 +80,24 @@ async function selectCategory(buttons) {
     allBtn.classList.remove("btn-outline")
     buttons.forEach(button => {
         button.onclick = () => {
-            buttons.forEach(btn => {
-                btn.classList.remove("btn-primary")
-                btn.classList.add("btn-outline")
-            });
-            button.classList.add("btn-primary")
-            button.classList.remove("btn-outline")
             showSpinner()
-            const filteredValue = button.innerText.toLowerCase()
-            if (filteredValue === "all") {
-                displayAllIssues(allIssuesCard)
-            }
-            else {
-                const filteredCard = allIssuesCard.filter(issue => issue.status === filteredValue)
-                displayAllIssues(filteredCard)
-            }
-            hideSpinner()
+            setTimeout(() => {
+                buttons.forEach(btn => {
+                    btn.classList.remove("btn-primary")
+                    btn.classList.add("btn-outline")
+                });
+                button.classList.add("btn-primary")
+                button.classList.remove("btn-outline")
+                const filteredValue = button.innerText.toLowerCase()
+                if (filteredValue === "all") {
+                    displayAllIssues(allIssuesCard)
+                }
+                else {
+                    const filteredCard = allIssuesCard.filter(issue => issue.status === filteredValue)
+                    displayAllIssues(filteredCard)
+                }
+                hideSpinner()
+            }, 100)
         }
     });
 }

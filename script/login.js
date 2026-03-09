@@ -1,9 +1,12 @@
+const loginContainer = document.getElementById("login-container")
 const loadSpinner = document.getElementById("load-spinner")
 const showSpinner = () => {
     loadSpinner.classList.remove("hidden")
+    loginContainer.classList.add("hidden")
 }
 const hideSpinner = () => {
     loadSpinner.classList.add("hidden")
+    loginContainer.classList.remove("hidden")
 }
 
 document.getElementById('sign-in-btn').addEventListener("click", function () {
