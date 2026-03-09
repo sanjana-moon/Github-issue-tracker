@@ -26,5 +26,18 @@ The (...) expands elements or properties of an array/object. Then creates a copy
 
 
 3️⃣ What is the difference between map(), filter(), and forEach()?
+Ans: In javascript, map(), filter() and forEach() are three array method used to iterate over elements of the array. Following are the difference between map(), filter(), and forEach():
+
+    1. Purpose: forEach() executes a function for every element in an array, map() transforms each element and create a new array, and filter() selects elements that satisfy a specific condition.
+
+    2. Return Value: forEach() returns undefined, map() returns a new array with transformed elements, and filter() returns a new array containing elements that pass the condition.
+
+    3. Array Length: forEach() does not create a new array so the original length remains unchanged, map() returns a new array with the same length as the original array, and filter() returns a new array that may be smaller or equal in length depending on the condition.
+
+    4. Chainability: forEach() cannot be chained with other array methods, while map() can be chained, and filter() can also be chained with other array methods.
+
+    5. Use Case: forEach() is best used for side effects such as logging or updating the DOM, map() is best used when modifying or transforming data, and filter() is best used when removing unwanted elements or selecting specific data.
+
+
 4️⃣ What is an arrow function?
 5️⃣ What are template literals?
