@@ -40,4 +40,22 @@ Ans: In javascript, map(), filter() and forEach() are three array method used to
 
 
 4️⃣ What is an arrow function?
+Ans: Arrow Function (=>) is a concise way to write function expressions in Javascript. It was introduced in ES6 that allows us to write shorter and cleaner functions.
+It uses the fat arrow => syntax instead of the function keyword. It automatically inherits (this) from the surrounding scope. Arrow functions cannot be used as constructors or called with the new keyword.
+    Example:
+        const add = (a, b) => a + b;
+
+
 5️⃣ What are template literals?
+Ans: In JavaScript, Template Literals are a feature that allow us to create strings more easily and dynamically. Template Literals use backticks (` `) instead of single (' ') or double (" ") quotes. 
+It supports string interpolation, multi-line strings, and expression evaluation directly within the string. It make code cleaner and more readable compared to traditional string concatenation.
+
+    Example:
+        const name = "X";
+        const age = 25;
+
+        const message = `My name is ${name} and I am ${age} years old.`;
+        console.log(message);
+
+    Output:
+        My name is X and I am 25 years old
